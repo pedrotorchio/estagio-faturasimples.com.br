@@ -4,10 +4,11 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Routes
+FaturaSimples::configure("https://pedrotorchio.faturasimples.com.br", "jLWia2EPPNWOLW8eUIcTJgWCoik");
 
-$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
+$app->get('/venda', function (Request $request, Response $response, array $args) {
     // Sample log message
-    $this->logger->info("Slim-Skeleton '/' route");
+    $venda = FaturaSimples_Venda::listar();
 
     // Render index view
     return $this->renderer->render($response, 'index.phtml', $args);
