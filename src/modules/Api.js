@@ -21,17 +21,34 @@ export default {
     return new Promise (resolve=> resolve([
         {
           cliente:{
-            nome: "Cliente Tal",
-            cnpj: "6546254-653/535"
+            nome: "Cliente Primeiro",
+            cnpj: "5432654-653/5543"
           },
-          valor_venda: 435.43
+          valor_venda: 435.43,
+          boletos:[
+            "https:\/\/fsimp.net\/pedrotorchio\/boleto-tEPJT0XHUEPlDSm6i5Mw",
+            "https:\/\/fsimp.net\/pedrotorchio\/boleto-tEPJT0XHUEPlDSm6i5Mw",
+            "https:\/\/fsimp.net\/pedrotorchio\/boleto-tEPJT0XHUEPlDSm6i5Mw"
+          ]
         },
         {
           cliente:{
-            nome: "Cliente Tal",
+            nome: "Segundo Cliente",
             cnpj: "6546254-653/535"
           },
-          valor_venda: 435.43
+          valor_venda: 4099.43,
+          boletos:[
+            "https:\/\/fsimp.net\/pedrotorchio\/boleto-tEPJT0XHUEPlDSm6i5Mw",
+            "https:\/\/fsimp.net\/pedrotorchio\/boleto-tEPJT0XHUEPlDSm6i5Mw"
+          ]
+        },
+        {
+          cliente:{
+            nome: "Cliente Terceiro",
+            cnpj: "6546254-623/5343"
+          },
+          valor_venda: 1000.43,
+          boletos:[]
         }
       ])
     )

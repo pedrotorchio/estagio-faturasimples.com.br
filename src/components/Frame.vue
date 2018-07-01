@@ -1,13 +1,31 @@
 <script>
 import VendasView from './views/VendasView'
 import BoletosView from './views/BoletosView'
+import api from '../modules/Api'
 
 export default {
   data(){
     return {
       selectedTab: 0,
-      modalComponent: null
+      modalComponent: null,
+      vendas: []
     }
+  },
+  methods:{
+    getVendas(){
+      api.getVendas()
+          .then(vendas => {
+            vendas = vendas.map(venda => ({
+              ...venda,
+              text: `${venda.cliente.nome} ${venda.cliente.cnpj}`
+            }))
+            
+            this.vendas = vendas
+          })
+    },
+  },
+  created(){
+    this.getVendas()
   },
   components: {VendasView, BoletosView}
 }
@@ -19,7 +37,7 @@ export default {
         slot="extension"
         v-model="selectedTab"
         centered
-        color="cyan"
+        color="green lighten-1"
         slider-color="yellow"
       >
         <v-tab
@@ -34,12 +52,12 @@ export default {
         <v-tab-item
           :key="0"
         >
-        <vendas-view></vendas-view>
+        <vendas-view :vendas="vendas"></vendas-view>
         </v-tab-item>
         <v-tab-item
           :key="1"
         >
-        <boletos-view></boletos-view>
+        <boletos-view :vendas="vendas"></boletos-view>
         </v-tab-item>
       </v-tabs-items>
       
@@ -97,5 +115,18 @@ export default {
   top: 0;
   left: 0;
   transition: background-color .4s;
+}
+.add-btn {
+  margin-top: 16px;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+}
+.dollar::before{
+  content: '$ ';
+}
+.boleto{
+  margin-left: 16px;
 }
 </style>
