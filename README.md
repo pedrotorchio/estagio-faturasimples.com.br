@@ -21,7 +21,7 @@ para rodar localmente:
     - views/ - Conteúdo das tabs
     - dialogs/ - Dialogo de criação de Vendas
   - api/ - backend em PHP para abstrair autenticação e possibilitar acesso livre (justificativa abaixo)
-    -  src/routes - unico arquivo alterado, com rotas da api
+    -  src/routes.php - unico arquivo alterado, com rotas da api
 
 
 ## Dificuldades
