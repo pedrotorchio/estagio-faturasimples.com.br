@@ -29,8 +29,8 @@ export default {
 <template>
   <div>
     <section>
-      <section v-for="(venda, i) in vendas" :key="i">
-        <row :status="true" :icon="'check_circle'">
+      <section v-for="venda in vendas" :key="venda.id">
+        <row :status="true" :icon="'check_circle'" :uid="venda.id" @delete="$emit('deleteVenda', $event)">
           <div class="title">
             <span>Boletos de {{venda.cliente.nome}}</span>
             <span class="dollar">{{venda.valor_venda}}</span>

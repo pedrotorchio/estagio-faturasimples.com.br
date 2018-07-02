@@ -8,36 +8,72 @@ export default {
     return {
       selectedTab: 0,
       modalComponent: null,
-      vendas: []
+      vendas: [],
+      isLoading: false,
+      color: "green lighten-1"
     }
   },
   methods:{
+    toggleLoading(state = null){
+      this.isLoading = state == null ? !this.isLoading : state
+    },
+    deleteVenda(id){
+      this.toggleLoading(true)
+      
+      api.deleteVenda(id)
+        .then(result=>{
+          console.log(result)
+          this.getVendas()
+        })
+        .catch(this.logError)
+    },
     getVendas(){
+      this.toggleLoading(true)
+
       api.getVendas()
           .then(vendas => {
             vendas = vendas.map(venda => ({
               ...venda,
+              id: parseFloat(venda.id),
               text: `${venda.cliente.nome} ${venda.cliente.cnpj}`
             }))
             
             this.vendas = vendas
+            this.toggleLoading(false)
           })
+          .catch(this.logError)
     },
+    createVenda(data){
+      this.toggleLoading(true)
+      api.createVenda(data)
+        .then(result=>{
+          this.getVendas()
+          this.toggleLoading(false)
+        })
+        .catch(this.logError)
+    },
+    logError(error){
+        this.toggleLoading(false)
+        console.error(error.mensagem)
+    }
   },
+
   created(){
     this.getVendas()
+    // setInterval(this.getVendas, 10000)
   },
   components: {VendasView, BoletosView}
 }
 </script>
 <template>
   <main>
+    <v-progress-linear id="progress" v-if="isLoading" indeterminate color="orange lighten-1"></v-progress-linear>
     <v-tabs
         id="main-tabs"
         slot="extension"
         v-model="selectedTab"
         centered
-        color="green lighten-1"
+        :color="color"
         slider-color="yellow"
       >
         <v-tab
@@ -52,19 +88,24 @@ export default {
         <v-tab-item
           :key="0"
         >
-        <vendas-view :vendas="vendas"></vendas-view>
+        <vendas-view :vendas="vendas" @deleteVenda="deleteVenda" @createVenda="createVenda"></vendas-view>
         </v-tab-item>
         <v-tab-item
           :key="1"
         >
-        <boletos-view :vendas="vendas"></boletos-view>
+        <boletos-view :vendas="vendas" @deleteVenda="deleteVenda"></boletos-view>
         </v-tab-item>
       </v-tabs-items>
       
   </main>
 </template>
 <style lang="scss" scoped>
-
+#progress{
+  position: fixed;
+  top: 0;
+  margin:0;
+  z-index: 999;
+}
 #main-tabs /deep/ .v-tabs__item{
   color: white;
 }

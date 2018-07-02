@@ -8,11 +8,16 @@ export default {
       type: Boolean,
       default: true
     },
+    uid:{
+      type: Number,
+      required: false
+    },
     href:{
       type: String,
       required: false
     }
-  }
+  },
+  
 }
 </script>
 <template>
@@ -27,9 +32,9 @@ export default {
         
       </div>
       <div class="text-container"><slot></slot></div>
-      <div class="actn-container">
+      <div class="actn-container" v-if="uid">
         <v-btn flat icon color="yellow">
-          <v-icon x-large color="red lighten-1" v-if="icon" >delete_forever</v-icon>
+          <v-icon x-large color="red lighten-1" v-if="icon" @click="$emit('delete', uid)" >delete_forever</v-icon>
         </v-btn>
       </div>
     </article>

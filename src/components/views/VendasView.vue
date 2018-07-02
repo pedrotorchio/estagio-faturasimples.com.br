@@ -28,7 +28,11 @@ export default {
 <template>
   <div>
     <section>
-      <row v-for="(venda, i) in vendas" :key="i" :status="true" :icon="'check_circle'">
+      <row v-for="venda in vendas" 
+      :key="venda.id" :status="true" 
+      :icon="'check_circle'" :uid="venda.id"  
+      @delete="$emit('deleteVenda', $event)">  
+      
         <div class="title">
           <span>{{venda.text}}</span>
           <span class="dollar">{{venda.valor_venda}}</span>
@@ -40,7 +44,7 @@ export default {
     </v-btn>
     <div @click.self="closeDialog" id="modal" :class="{shown: dialogState}">
       <button @click="closeDialog">X</button>
-      <new-vendas-dialog @close="closeDialog" id="modal-component"></new-vendas-dialog>
+      <new-vendas-dialog @close="closeDialog" @save="$emit('createVenda', $event)" id="modal-component"></new-vendas-dialog>
     </div>
   </div>
   
