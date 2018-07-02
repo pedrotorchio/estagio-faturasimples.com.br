@@ -5,8 +5,8 @@
 https://app-estagio-faturasimples.herokuapp.com/
 
 para rodar localmente:
-1. rodar servidor da api em php
-2. rodar servidor do cliente web em node
+- rodar servidor da api em php
+- rodar servidor do cliente web em node
 
 1. cd src/api;
 2. php -S localhost:9090 -t public public/index.php;
