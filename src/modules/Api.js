@@ -3,11 +3,8 @@ import axios from 'axios'
 // DESNESCESSÁRIO JÁ QUE ESTÁ SENDO USADO API AUXILIAR EM PHP
 const CHAV = "jLWia2EPPNWOLW8eUIcTJgWCoik";
 const AUTH = btoa(`${CHAV}:`);
-const BASE = "http://localhost:9090";
+const BASE = "http://api-estagio-faturasimples.herokuapp.com/public";
 
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = "https://pedrotorchio.faturasimples.com.br/api"
-axios.defaults.headers.common["Authorization"] = `Basic ${AUTH}`
 
 const x = axios.create({
   // withCredentials: true,

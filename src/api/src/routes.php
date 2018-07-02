@@ -12,7 +12,7 @@ function checkError($json){
 }
 
 function checkOrigin($req, $res, $next) {
-    $expOrigin = 'http://localhost:8080';
+    $expOrigin =  "https://app-estagio-faturasimples.herokuapp.com/";
     $reqOrigin = $req->getHeaderLine('origin');
 
     if($reqOrigin != $expOrigin)
