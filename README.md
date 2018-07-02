@@ -15,13 +15,13 @@ para rodar localmente:
 4. npm run dev
 
 ## Estrutura de Arquivos
-src/
-  modules/Api.js - Abstração da api
-  components/ - Components Vue para a GUI
-    views/ - Conteúdo das tabs
-    dialogs/ - Dialogo de criação de Vendas
-  api/ - backend em PHP para abstrair autenticação e possibilitar acesso livre (justificativa abaixo)
-    src/routes - unico arquivo alterado, com rotas da api
+- src/
+  - modules/Api.js - Abstração da api
+  - components/ - Components Vue para a GUI
+    - views/ - Conteúdo das tabs
+    - dialogs/ - Dialogo de criação de Vendas
+  - api/ - backend em PHP para abstrair autenticação e possibilitar acesso livre (justificativa abaixo)
+    -  src/routes - unico arquivo alterado, com rotas da api
 
 
 ## Dificuldades
