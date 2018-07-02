@@ -3,7 +3,7 @@ import axios from 'axios'
 // DESNESCESSÁRIO JÁ QUE ESTÁ SENDO USADO API AUXILIAR EM PHP
 const CHAV = "jLWia2EPPNWOLW8eUIcTJgWCoik";
 const AUTH = btoa(`${CHAV}:`);
-const BASE = "http://api-estagio-faturasimples.herokuapp.com/public";
+const BASE = "https://api-estagio-faturasimples.herokuapp.com/public";
 
 
 const x = axios.create({
