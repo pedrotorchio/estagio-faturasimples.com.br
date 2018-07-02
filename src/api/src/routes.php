@@ -11,15 +11,27 @@ function checkError($json){
     return isset($data['mensagem']) && isset($data['tipo']);
 }
 
-$app->add(function ($req, $res, $next) {
-    $response = $next($req, $res);
+function checkOrigin($req, $res, $next) {
+    $expOrigin = 'http://localhost:8080';
+    $reqOrigin = $req->getHeaderLine('origin');
+
+    if($reqOrigin != $expOrigin)
+        return $res
+        ->withHeader('Access-Control-Allow-Origin', $expOrigin)
+        ->withJson([
+            "tipo" => "Cliente Inválido",
+            "mensagem" => "Cliente web não permitido " . $reqOrigin
+        ], 401);
+
+        $response = $next($req, $res);
+    
     return $response
-            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:8080')
+            ->withHeader('Access-Control-Allow-Origin', $expOrigin)
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS')
             ->withHeader('Access-Control-Allow-Credentials', 'true');
-});
-
+};
+$app->add(checkOrigin);
 
 $app->delete('/venda/{id}', function (Request $request, Response $response, array $args) {
     // Sample log message
