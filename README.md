@@ -20,7 +20,8 @@ src/
   components/ - Components Vue para a GUI
     views/ - Conteúdo das tabs
     dialogs/ - Dialogo de criação de Vendas
-  api/ - backend para abstrair autenticação e possibilitar acesso livre (justificativa abaixo)
+  api/ - backend em PHP para abstrair autenticação e possibilitar acesso livre (justificativa abaixo)
+    src/routes - unico arquivo alterado, com rotas da api
 
 
 ## Dificuldades
