@@ -8,10 +8,11 @@ para rodar localmente:
 - rodar servidor da api em php
 - rodar servidor do cliente web em node
 
-1. cd src/api;
-2. php -S localhost:9090 -t public public/index.php;
-3. cd ../..;
-4. npm run dev;
+1. a partir da raiz
+1. cd src/api
+2. php -S localhost:9090 -t public public/index.php
+3. cd ../..
+4. npm run dev
 
 ## Estrutura de Arquivos
 src/
