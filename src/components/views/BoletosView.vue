@@ -1,4 +1,7 @@
 <script>
+/**
+ * GUI de visualização de lista de boletos agrupadas por Venda, com exclusão de vendas
+ */
 import row from './Row'
 import api from '../../modules/Api'
 import newVendasDialog from '../dialogs/NewVendas'

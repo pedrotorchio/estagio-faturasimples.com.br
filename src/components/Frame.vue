@@ -1,4 +1,9 @@
 <script>
+/**
+ * Componente que gerencia a logistica dos dados de vendas
+ * Faz contato com a api e armazena listagem, passando-a para componentes GUI adequados, divididos por tabs
+ * 
+ */
 import VendasView from './views/VendasView'
 import BoletosView from './views/BoletosView'
 import api from '../modules/Api'
@@ -85,15 +90,20 @@ export default {
       </v-tabs>
 
       <v-tabs-items v-model="selectedTab" id="main-tabs-content">
+        <!-- vendas -->
         <v-tab-item
           :key="0"
         >
-        <vendas-view :vendas="vendas" @deleteVenda="deleteVenda" @createVenda="createVenda"></vendas-view>
+        
+                  <vendas-view :vendas="vendas" @deleteVenda="deleteVenda" @createVenda="createVenda"></vendas-view>
         </v-tab-item>
+        
+        <!-- boletos -->
         <v-tab-item
           :key="1"
         >
-        <boletos-view :vendas="vendas" @deleteVenda="deleteVenda"></boletos-view>
+        
+                  <boletos-view :vendas="vendas" @deleteVenda="deleteVenda"></boletos-view>
         </v-tab-item>
       </v-tabs-items>
       

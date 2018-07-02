@@ -1,4 +1,7 @@
 <script>
+/**
+ * GUI de visualização de lista de Vendas, exclusão e criação através de dialogo de criação de venda
+ */
 import row from './Row'
 import newVendasDialog from '../dialogs/NewVendas'
 
@@ -42,6 +45,8 @@ export default {
     <v-btn @click="openDialog" class="add-btn" flat icon color="yellow">
       <v-icon x-large color="green lighten-1">add_circle</v-icon>
     </v-btn>
+
+    <!-- dialogo de criação -->
     <div @click.self="closeDialog" id="modal" :class="{shown: dialogState}">
       <button @click="closeDialog">X</button>
       <new-vendas-dialog @close="closeDialog" @save="$emit('createVenda', $event)" id="modal-component"></new-vendas-dialog>

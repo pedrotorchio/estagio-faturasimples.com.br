@@ -1,6 +1,7 @@
 # estagio-faturasimples.com.br
 
 > Ferramenta criada em VueJs + SlimPHP
+> https://app-estagio-faturasimples.herokuapp.com/
 
 ## Estrutura de Arquivos
 src/
@@ -19,6 +20,8 @@ src/
 ## Resultados
   Cogitei criar um site estático em php, mas ao final resolvi utilizar a api em php para criar minha propria api restful reduzida que não exigiria nenhuma autenticação do navegador. Isso para poder utilizar tecnologias mais diversas e aproveitar o cliente web que já havia desenvolvido, mas claro que é uma tremenda quebra de segurança.
 
-  Gostaria de deixar claro, porém, que o sistema está apenas aceitando requisições vindas do cliente desenvolvido por mim, via cabeçalho Access-Control-Allow-Origin para barrar no cliente web e 
+  Gostaria de deixar claro, porém, que o sistema está apenas aceitando requisições vindas do cliente desenvolvido por mim, via cabeçalhos Access-Control-Allow-Origin e Origin para além de verificar no servidor, barrar no cliente web.
 
   O cliente está desenvolvido em VueJs e a api em SlimPHP
+
+  O desenvolvimento do cliente web em si foi realmente muito rápido. A api em slimPhp é trivial. Entre planejamento, experimentação com a conta no sistema faturasimples.com.br e algumas tentativas e erros com a API, levou cerca de três horas. Porém divididas com contatos via email e resolução de problemas diversos, com pausas dentro de um fim de semana, levei cerca de 10 horas.

@@ -1,4 +1,7 @@
 <script>
+/**
+ * GUI de visualização de linha texto com icone de exclusão a direita e ícone com link customizável a esquerda
+ */
 export default {
   props: {
     icon:{

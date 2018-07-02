@@ -1,4 +1,10 @@
 <script>
+/**
+ * GUI de dialogo para criação de vendas
+ * Utiliza eventos para comunicar ações à componentes superiores
+ *  @save({clienteNome, valorVenda})
+ *  @close()
+ */
 export default {
   props:{
     color:{

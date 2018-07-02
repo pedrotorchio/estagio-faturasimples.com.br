@@ -12,6 +12,11 @@ function checkError($json){
 }
 
 function checkOrigin($req, $res, $next) {
+    /**
+     * BLOQUEIA ACESSO DE CLIENTES NÃO AUTORIZADOS
+     * $expOrigin contém endereço de cliente esperado e autorizado (sem cabeçalho de autorização)
+     */
+
     $expOrigin = 'http://localhost:8080';
     $reqOrigin = $req->getHeaderLine('origin');
 
