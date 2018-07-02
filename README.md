@@ -1,7 +1,17 @@
 # estagio-faturasimples.com.br
 
 > Ferramenta criada em VueJs + SlimPHP
-> https://app-estagio-faturasimples.herokuapp.com/
+
+https://app-estagio-faturasimples.herokuapp.com/
+
+para rodar localmente:
+1. rodar servidor da api em php
+2. rodar servidor do cliente web em node
+
+cd src/api
+php -S localhost:9090 -t public public/index.php
+cd ../.. 
+npm run dev
 
 ## Estrutura de Arquivos
 src/
